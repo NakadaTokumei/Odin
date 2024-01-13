@@ -8,15 +8,39 @@ EXTERN_C_START
 
 // Exclusive Operation
 unsigned char
-_LDREXB(void* ptr);
+_LDREXB(
+    void* ptr
+);
 
  
 unsigned short
-_LDREXH(void* ptr);
+_LDREXH(
+    void* ptr
+);
 
  
 unsigned long
-_LDREX(void* ptr);
+_LDREX(
+    void* ptr
+);
+
+unsigned char
+_STREXB(
+    void* ptr, 
+    uint8_t data
+);
+
+unsigned short
+_STREXH(
+    void* ptr, 
+    uint16_t data
+);
+
+unsigned long
+_STREX(
+    void* ptr, 
+    uint32_t data
+);
 
 EXTERN_C_END
 

@@ -26,3 +26,23 @@ _LDREX:
     ldrex r0, [r0]
     bx lr
     .size _LDREX, . - _LDREX
+
+    .section .text._STREXB
+    .type _STREXB, %function
+_STREXB:
+    strexb r0, r1, [r0]
+    bx lr
+    .size _STREXB, . - _STREXB
+
+    .section .text._STREXH
+    .type _STREXH, %function
+_STREXH:
+    strexh r0, r1, [r0]
+    .size _STREXH, . - _STREXH
+
+    .section .text._STREX
+    .type _STREX, %function
+_STREX:
+    strex r0, r1, [r0]
+    bx lr
+    .size _STREX, . - _STREX
