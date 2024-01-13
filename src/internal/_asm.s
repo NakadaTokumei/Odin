@@ -30,19 +30,23 @@ _LDREX:
     .section .text._STREXB
     .type _STREXB, %function
 _STREXB:
-    strexb r0, r1, [r0]
+    mov r0, r2
+    strexb r0, r1, [r2]
     bx lr
     .size _STREXB, . - _STREXB
 
     .section .text._STREXH
     .type _STREXH, %function
 _STREXH:
-    strexh r0, r1, [r0]
+    mov r0, r2
+    strexh r0, r1, [r2]
+    bx lr
     .size _STREXH, . - _STREXH
 
     .section .text._STREX
     .type _STREX, %function
 _STREX:
-    strex r0, r1, [r0]
+    mov r0, r2
+    strex r0, r1, [r2]
     bx lr
     .size _STREX, . - _STREX
