@@ -20,27 +20,26 @@ public:
     bool 
     set(T val)
     {
-        T lockVal;
         bool status = false;
         
         if constexpr (std::is_same_v<T, int> || 
                       std::is_same_v<T, uint32_t>)
         {
-            lockVal = static_cast<T>(_STREX(&_val, val));
+            status = static_cast<bool>(_STREX(&_val, val));
         }
         else if constexpr (std::is_same_v<T, short> || 
                            std::is_same_v<T, uint16_t>)
         {
-            lockVal = static_cast<T>(_STREXH(&_val, val));
+            status = static_cast<bool>(_STREXH(&_val, val));
         }
         else if constexpr (std::is_same_v<T, char> || 
                            std::is_same_v<T, uint8_t> ||
                            std::is_same_v<T, bool>)
         {
-            lockVal = static_cast<T>(_STREXB(&_val, val));
+            status = static_cast<bool>(_STREXB(&_val, val));
         }
 
-        return (lockVal == val);
+        return status;
     }
     
     T   

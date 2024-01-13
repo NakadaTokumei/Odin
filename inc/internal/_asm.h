@@ -12,7 +12,6 @@ _LDREXB(
     void* ptr
 );
 
- 
 unsigned short
 _LDREXH(
     void* ptr
@@ -30,13 +29,13 @@ _STREXB(
     uint8_t data
 );
 
-unsigned short
+unsigned char
 _STREXH(
     void* ptr, 
     uint16_t data
 );
 
-unsigned long
+unsigned char
 _STREX(
     void* ptr, 
     uint32_t data
