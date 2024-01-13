@@ -1,5 +1,7 @@
 ARCH=arm-none-eabi-
 
+CPU=armv7-m
+
 CPP=g++
 CC=gcc
 ASM=as
@@ -11,7 +13,12 @@ ASM_OBJ= \
 
 OUTPUT=libodin.a
 
-$(OUTPUT)
+$(OUTPUT) : $(ASM_OBJ)
+	ar crv $@
 
 %.o : %.s
-	$(ARCH)$(ASM) -c -o $^ $@
+	$(ARCH)$(ASM) -march=$(CPU) -c -o $@ $^
+
+clean:
+	rm -rf $(ASM_OBJ)
+	rm -rf $(OUTPUT)
