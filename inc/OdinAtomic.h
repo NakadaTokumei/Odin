@@ -68,8 +68,8 @@ public:
     T&
     operator=(T val)
     {
-        get(val);
-        set(val);
+        load(val);
+        store(val);
         return *self;
     }
 };
