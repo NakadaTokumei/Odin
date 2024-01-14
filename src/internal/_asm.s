@@ -50,3 +50,11 @@ _STREX:
     strex r0, r1, [r2]
     bx lr
     .size _STREX, . - _STREX
+
+
+    .section .text._CLREX
+    .type _CLREX, %function
+_CLREX:
+    clrex
+    bx lr
+    .size _CLREX, . - _CLREX

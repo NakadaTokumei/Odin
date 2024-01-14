@@ -65,6 +65,12 @@ public:
         return result;
     }
 
+    void
+    clear(void)
+    {
+        
+    }
+
     T&
     operator=(T val)
     {
