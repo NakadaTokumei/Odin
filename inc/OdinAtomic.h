@@ -18,7 +18,7 @@ public:
     Atomic() = default;
 
     bool 
-    set(T val)
+    store(T val)
     {
         bool status = false;
         
@@ -43,7 +43,7 @@ public:
     }
     
     T   
-    get(void)
+    load(void)
     {
         T result;
         if constexpr (std::is_same_v<T, int> || 
@@ -64,7 +64,23 @@ public:
         }
         return result;
     }
+
+    T&
+    operator=(T val)
+    {
+        get(val);
+        set(val);
+        return *self;
+    }
 };
+
+typedef Atomic<bool>        AtomicBool;
+typedef Atomic<int8_t>      AtomicChar;
+typedef Atomic<uint8_t>     AtomicUChar;
+typedef Atomic<int16_t>     AtomicShort;
+typedef Atomic<uint16_t>    AtomicUShort;
+typedef Atomic<int32_t>     AtomicInt;
+typedef Atomic<uint32_t>    AtomicUInt;
 
 
 END_NAMESPACE
